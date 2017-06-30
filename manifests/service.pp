@@ -11,7 +11,7 @@ class aws_agent::service inherits aws_agent {
       'RedHat': {
         service { $aws_agent::service_name:
           ensure    => running,
-          subscribe => Package['aws_agent'],
+          subscribe => Class['aws_agent::install'],
           require   => Class['aws_agent::install'],
         }
       }
